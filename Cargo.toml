@@ -1,0 +1,33 @@
+[package]
+name = "casper_vault_plugin"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libc = "0.2"
+openssl = "0.10"
+ed25519-dalek = "2.1.0"
+getrandom = "0.2.12"
+base16 = "0.2.1"
+base64 = "0.21.7"
+derp = "0.0.14"
+pem = "0.8.3"
+tokio = { version = "1", features = ["full"] }
+tonic = "0.10.2"
+tonic-health = "0.10.2"
+futures = "0.3"
+prost = "0.12"
+prost-build = "0.12"
+
+[lib]
+name = "casper_vault_plugin"
+path = "src/lib.rs"
+
+[build-dependencies]
+tonic-build = "0.10.2"
+
+[package.metadata.build-dependencies]
+tonic-build = "0.10.2"
+
+[build]
+build = "build.rs"

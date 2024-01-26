@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package kv;
+
+service Kv {
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Put(PutRequest) returns (Empty);
+}
+
+message GetRequest {
+  string key = 1;
+}
+
+message GetResponse {
+  string value = 1;
+}
+
+message PutRequest {
+  uint32 add_server = 1;
+  string key = 2;
+  int64 value = 3;
+}
+
+message Empty {
+  // message fields...
+}
